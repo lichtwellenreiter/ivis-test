@@ -6,106 +6,27 @@
     <link rel="stylesheet" href="assets/fullpage.min.css">
     <script src="assets/fullpage.min.js"></script>
     <script src="assets/anime.min.js"></script>
+    <script src="https://unpkg.com/d3@6.7.0/dist/d3.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&family=Patua+One&display=swap"
           rel="stylesheet">
-    <style>
-        :root {
-            --yellow: #f6dc00;
-            --black: #000000;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--black);
-        }
-
-        h1, h2, h3 {
-            font-family: 'Patua One', cursive;
-        }
-
-        h1 {
-            font-size: 13em;
-            letter-spacing: 10px;
-        }
-
-        h2 {
-            font-size: 5em;
-        }
-
-        .p0 {
-            padding: 0;
-        }
-
-        .m0 {
-            margin: 0;
-        }
-
-        .t0 {
-            list-style-type: none;
-        }
-
-        h3 {
-            font-size: 2em;
-        }
-
-        .fp-tableCell {
-            text-align: center;
-        }
-
-        .speech-bubble {
-            position: relative;
-            left: 50%;
-            transform: translate(-50%);
-            color: var(--yellow);
-            max-width: 30em;
-            background-color: var(--black);
-            padding: 1.125em 1.5em;
-            font-size: 1.25em;
-            border-radius: 1rem;
-            box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
-        }
-
-        .speech-bubble::before {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-            bottom: 100%;
-            left: 1.5em;
-            border: .75rem solid transparent;
-            border-top: none;
-            border-bottom-color: #000000;
-            filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
-        }
-
-        .sources {
-            margin-top: 1em;
-        }
-
-        a {
-            color: var(--black);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        #arrow-down {
-            max-height: 2em;
-        }
-
-    </style>
+    <link rel="stylesheet" href="assets/ivis.css">
 </head>
 <body>
 
 <div id="fullpage">
 
     <div class="section">
-        <div> scroll down</div>
-        <img src="assets/arrow_down.svg" class="arrow arrow-down" id="arrow-down">
+
+
+        <canvas width="500" height="200" id="canv"></canvas>
+        <div class="scroll-down">
+            <span class="main-title">Cybercrime</span>
+            <div>scroll down</div>
+            <img src="assets/arrow_down.svg" class="arrow arrow-down" id="arrow-down">
+        </div>
+
     </div>
 
     <div class="section fp-table fp-section section-one">
@@ -117,14 +38,17 @@
 
 
     <div class="section">
+        <h2>Aufteilung nach Modus Operandi</h2>
+        <div id="bubble-chart"></div>
+        <p class="speech-bubble" id="more-data-box">
+            <img id="close" src="assets/cross.svg" alt="close">
+            <span id="more-data-title"></span><br/>
+            <span id="more-data-cases"></span><br/>
 
-        <p class="speech-bubble">If you have one bucket that contains 2 gallons and another bucket that contains 7
-            gallons, how many buckets
-            do you have?</p>
-
-
+        </p>
     </div>
-    <div class="section">Some section</div>
+
+
     <div class="section">
         <h2 class="p0 m0">Quellen?</h2>
         <h3 class="p0 m0">Haben wir!</h3>
@@ -142,7 +66,7 @@
 
     anime({
         targets: 'img.arrow-down',
-        translateY: 50,
+        translateY: 30,
         direction: 'alternate',
         loop: true,
         easing: function (el, i, total) {
@@ -156,20 +80,29 @@
     const counters = document.querySelectorAll('.count');
     const speed = 500;
 
+    const runCounters = _ => {
+        counters.forEach((counter) => {
 
-    counters.forEach((counter) => {
-        (function updateCount() {
-            const target = parseInt(counter.getAttribute('data-target'));
-            const count = parseInt(counter.innerText);
-            const increment = Math.trunc(target / speed);
-            if (count < target) {
-                counter.innerText = count + increment;
-                setTimeout(updateCount, 1);
-            } else {
-                counter.innerText = target;
+            counter.innerText = 0;
+
+            function updateCount() {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const count = parseInt(counter.innerText);
+                const increment = Math.trunc(target / speed);
+                if (count < target) {
+                    counter.innerText = count + increment;
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
             }
-        })();
-    });
+
+            updateCount();
+
+        });
+
+
+    }
 
 
     new fullpage("#fullpage", {
@@ -177,13 +110,13 @@
         scrollHorizontally: true,
         navigation: true,
         navigationPosition: 'right',
-        sectionsColor: ['#f6dc00', '#f6dc00', '#f6dc00', '#f6dc00','#f6dc00',],
+        sectionsColor: ['#f6dc00', '#f6dc00', '#f6dc00', '#f6dc00', '#f6dc00',],
+        afterLoad: (origin, destination, direction) => runCounters()
     });
 </script>
 
-<script>
-
-</script>
+<script src="assets/bubbles.js"></script>
+<script src="assets/matrix.js"></script>
 
 </body>
 </html>

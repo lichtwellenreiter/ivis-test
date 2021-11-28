@@ -1,0 +1,23 @@
+group,category,title,google_cases,cases,solved_cases,rate,url,bgColor,wikipedia
+1,Phishing,Phishing,4376,642,60,9.35%,https://de.wikipedia.org/wiki/Phishing,#65A44F,Phishing
+2,Hacking,Gewaltsames Eindringen in ein Datenverarbeitungssystem,3451,319,46,14.42%,https://de.wikipedia.org/wiki/Cracker_(Computersicherheit),#93C364,Cracker_(Computersicherheit)
+2,Hacking,Eindringen in ein Datenverarbeitungssystem mit fremden Zugangsdaten,,470,101,21.49%,https://de.wikipedia.org/wiki/Cracker_(Computersicherheit),#93C364,Cracker_(Computersicherheit)
+3,Malware,Ransomware,3568,222,4,1.80%,https://de.wikipedia.org/wiki/Ransomware,#B2D19C,Schadprogramm
+3,Malware,E-Banking Trojaner,,83,19,22.89%,https://de.wikipedia.org/wiki/Trojanisches_Pferd_(Computerprogramm),#B2D19C,Schadprogramm
+3,Malware,Spyware,,65,8,12.31%,https://de.wikipedia.org/wiki/Spyware,#B2D19C,Schadprogramm
+3,Malware,Rogueware/Scareware,,49,3,6.12%,https://de.wikipedia.org/wiki/Scareware,#B2D19C,Schadprogramm
+3,Malware,Botnet,,18,3,16.67%,https://de.wikipedia.org/wiki/Botnet,#B2D19C,Schadprogramm
+4,DDoS,DDoS,2556,43,4,9.30%,https://de.wikipedia.org/wiki/Denial_of_Service,#95C195,Denial_of_Service
+5,Cyberbetrug,Cyberbetrug,1727,16395,6172,37.65%,https://de.wikipedia.org/wiki/Computerkriminalit%C3%A4t,#629A72,Computerkriminalität
+6,Money/Package Mules,Money/Package Mules,1517,1690,923,54.62%,https://en.wikipedia.org/wiki/Money_mule,#6EB3C4,Geldwäsche
+7,Sextortion,Sextortion (money),1104,513,35,6.82%,https://de.wikipedia.org/wiki/Sextortion,#3A83B4,Sextortion
+8,Diebstahl von Kryptowährung,Diebstahl von Kryptowährungen,721,35,5,14.29%,https://de.wikipedia.org/wiki/Kryptow%C3%A4hrung,#24558A,Kryptowährung
+9,Cyber Sexualdelikte,Verbotene Pornografie,2616,2338,2264,96.83%,https://de.wikipedia.org/wiki/Pornografie,#282F45,Sexualstrafrecht
+9,Cyber Sexualdelikte,Grooming,,130,104,80.00%,https://de.wikipedia.org/wiki/Cyber-Grooming,#282F45,Sexualstrafrecht
+9,Cyber Sexualdelikte,Sextortion,,109,54,49.54%,https://de.wikipedia.org/wiki/Sextortion,#282F45,Sexualstrafrecht
+9,Cyber Sexualdelikte,Live Streaming,,35,33,94.29%,https://de.wikipedia.org/wiki/Live-Streaming,#282F45,Sexualstrafrecht
+10,Cybermobbing,Cybersquatting,1845,24,3,12.50%,https://de.wikipedia.org/wiki/Cybersquatting,#676797,Cyber-Mobbing
+10,Cybermobbing,Cyber-Rufschädigung (Geschäftlich),6890,107,59,55.14%,https://de.wikipedia.org/wiki/Cyber-Mobbing,#676797,Cyber-Mobbing
+10,Cybermobbing,Cyberbullying/Cybermobbing,,1109,851,76.74%,https://de.wikipedia.org/wiki/Cyber-Mobbing,#676797,Cyber-Mobbing
+11,Illegaler Handel im Darknet,Illegaler Handel im Darknet,3041,2,1,50.00%,https://de.wikipedia.org/wiki/Darknet,#a1a1f6,Darknet
+12,Data leaking,Data leaking,1333,0,0,0.00%,https://wikileaks.org/,#2E2052,Leak
