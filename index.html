@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cyberkriminalität Schweiz</title>
+    <link rel="stylesheet" href="assets/fullpage.min.css">
+    <script src="assets/fullpage.min.js"></script>
+    <script src="assets/anime.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&family=Patua+One&display=swap"
+          rel="stylesheet">
+    <style>
+        :root {
+            --yellow: #f6dc00;
+            --black: #000000;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--black);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Patua One', cursive;
+        }
+
+        h1 {
+            font-size: 13em;
+            letter-spacing: 10px;
+        }
+
+        h2 {
+            font-size: 5em;
+        }
+
+        .p0 {
+            padding: 0;
+        }
+
+        .m0 {
+            margin: 0;
+        }
+
+        .t0 {
+            list-style-type: none;
+        }
+
+        h3 {
+            font-size: 2em;
+        }
+
+        .fp-tableCell {
+            text-align: center;
+        }
+
+        .speech-bubble {
+            position: relative;
+            left: 50%;
+            transform: translate(-50%);
+            color: var(--yellow);
+            max-width: 30em;
+            background-color: var(--black);
+            padding: 1.125em 1.5em;
+            font-size: 1.25em;
+            border-radius: 1rem;
+            box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
+        }
+
+        .speech-bubble::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            bottom: 100%;
+            left: 1.5em;
+            border: .75rem solid transparent;
+            border-top: none;
+            border-bottom-color: #000000;
+            filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
+        }
+
+        .sources {
+            margin-top: 1em;
+        }
+
+        a {
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        #arrow-down {
+            max-height: 2em;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="fullpage">
+
+    <div class="section">
+        <div> scroll down</div>
+        <img src="assets/arrow_down.svg" class="arrow arrow-down" id="arrow-down">
+    </div>
+
+    <div class="section fp-table fp-section section-one">
+        <div class="fp-tableCell">
+            <h1 class="count" data-target="24398">0</h1>
+            <h2>Fälle von Cyberkriminalität gab es 2020 in der Schweiz.</h2>
+        </div>
+    </div>
+
+
+    <div class="section">
+
+        <p class="speech-bubble">If you have one bucket that contains 2 gallons and another bucket that contains 7
+            gallons, how many buckets
+            do you have?</p>
+
+
+    </div>
+    <div class="section">Some section</div>
+    <div class="section">
+        <h2 class="p0 m0">Quellen?</h2>
+        <h3 class="p0 m0">Haben wir!</h3>
+        <div>
+            <ul class="t0 m0 p0 sources">
+                <li><a href="https://bit.ly/315YzcL" target="_blank">Bundesamt für Statistik - Digitale Kriminalität</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    anime({
+        targets: 'img.arrow-down',
+        translateY: 50,
+        direction: 'alternate',
+        loop: true,
+        easing: function (el, i, total) {
+            return function (t) {
+                return Math.pow(Math.sin(t * (i + 1)), total);
+            }
+        }
+    });
+
+
+    const counters = document.querySelectorAll('.count');
+    const speed = 500;
+
+
+    counters.forEach((counter) => {
+        (function updateCount() {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const count = parseInt(counter.innerText);
+            const increment = Math.trunc(target / speed);
+            if (count < target) {
+                counter.innerText = count + increment;
+                setTimeout(updateCount, 1);
+            } else {
+                counter.innerText = target;
+            }
+        })();
+    });
+
+
+    new fullpage("#fullpage", {
+        autoScrolling: true,
+        scrollHorizontally: true,
+        navigation: true,
+        navigationPosition: 'right',
+        sectionsColor: ['#f6dc00', '#f6dc00', '#f6dc00', '#f6dc00',],
+    });
+</script>
+
+<script>
+
+</script>
+
+</body>
+</html>
