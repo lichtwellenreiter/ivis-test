@@ -1,4 +1,6 @@
-d3.text("../data/cybercrime-switzerland-2020.csv")
+
+
+d3.text("https://raw.githubusercontent.com/lichtwellenreiter/ivis-test/master/data/cybercrime-switzerland-2020.csv")
     .then(d3.csvParse)
     .then(tryData);
 
